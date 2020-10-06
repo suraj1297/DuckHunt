@@ -86,7 +86,6 @@ function bird() {
                 $bird.style.top = `${top++}px`
             else
                 $bird.style.top = `${top--}px`
-
         }
 
         if (right >= 1300) {
@@ -101,7 +100,7 @@ function bird() {
         if (Math.floor(Math.random() * 1000) <= 1) {
             document.querySelector(".quack").play()
         }
-        if (seconds == 2000) {
+        if (seconds == 2500) {
             clearInterval(id);
             showDog("noHunt");
         }
