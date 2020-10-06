@@ -56,7 +56,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    margin-top: 150px;
+    margin-top: 200px;
     text-align: center;
     font-weight: 600;
     font-size: 3em;
@@ -64,11 +64,11 @@ body {
 
 #try-again {
     background-color: #7579e7;
-    margin-top: 20px;
+    margin-top: 50px;
     color: white;
     text-align: center;
-    font-size: 0.8em;
-    width: 350px;
+    font-size: 0.5em;
+    width: 250px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 20px;
@@ -139,8 +139,11 @@ body {
 h1 {
     position: absolute;
     bottom: 25px;
-    left: 500px;
+    left: 450px;
     font-size: 3em;
     color: #7579e7;
     letter-spacing: 15px;
+    border: 1px solid #7579e7;
+    padding: 0 20px;
+    border-radius: 10px;
 }
