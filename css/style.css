@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,400;0,500;0,600;1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Raleway', sans-serif;
+}
+
+.dog {
+    position: absolute;
+    z-index: 2;
+    bottom: 120px;
+}
+
+.tree {
+    position: absolute;
+    z-index: 1;
+    top: 250px;
+    left: 100px;
+}
+
+.duck-symbol {
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+}
+
+.duck-symbol img {
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+
+.bullets {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 1.7em;
+    color: #de4463;
+}
+
+.bird {
+    position: absolute;
+    cursor: pointer;
+}
+
+/* Lost */
+
+.lost {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 150px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 3em;
+}
+
+#try-again {
+    background-color: #7579e7;
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+
+/* Win */
+
+.won {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2em;
+    margin-top: 150px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "a a"
+        "b c";
+}
+
+
+.text {
+    grid-area: a;
+    color: #e97171;
+}
+
+#try-again-won {
+    grid-area: b;
+    justify-self: flex-end;
+    margin-right: 10px;
+}
+
+#next-level {
+    grid-area: c;
+    margin-left: 10px;
+}
+
+#next-level,
+#try-again-won {
+    background-color: #7579e7;
+    width: 200px;
+    padding: 10px 0;
+    border-radius: 10px;
+    margin-top: 50px;
+    color: white;
+    cursor: pointer;
+}
+
+
+.level {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #de4463;
+    border: 2px solid #de4463;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+h1 {
+    position: absolute;
+    bottom: 25px;
+    left: 500px;
+    font-size: 3em;
+    color: #7579e7;
+    letter-spacing: 15px;
+}
