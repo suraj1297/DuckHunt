@@ -180,7 +180,7 @@ function showDog(type = "hunt") {
             else clearInterval(id);
             if (bottom == 200) direction = "down";
         },
-        type == "hunt" ? 10 : 1000
+        20
     );
 
 
@@ -189,7 +189,7 @@ function showDog(type = "hunt") {
         setTimeout(() => won(), 3000)
     } else {
         // once the dog comes up and goes down after one second a new bird is created
-        callBirdTimeout = setTimeout(createNewBird, 2000);
+        callBirdTimeout = setTimeout(createNewBird, 4000);
     }
 }
 
@@ -204,7 +204,7 @@ function wings($bird, direction) {
     if (!revind) {
         $bird.setAttribute("src", `assets/bird/${direction}/${wingsNumber}.png`);
         wingsNumber++;
-        if (wingsNumber > 2) {
+        if (wingsNumber > 23) {
             revind = true;
         }
     } else {
