@@ -1,5 +1,5 @@
 function won() {
-
+    document.querySelector(".champ").play()
     if (document.querySelector(".won")) {
         document.querySelector("body").removeChild(document.querySelector(".won"))
     }

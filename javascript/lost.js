@@ -1,5 +1,6 @@
 function lost() {
 
+    document.querySelector(".loser").play()
     if (document.querySelector(".lost")) {
         document.querySelector("body").removeChild(document.querySelector(".lost"))
     }

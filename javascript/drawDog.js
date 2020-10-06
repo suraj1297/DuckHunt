@@ -1,6 +1,6 @@
 function drawDog() {
     let $dog = document.querySelector(".dog")
-
+    document.querySelector(".sniff").play()
     let position = -1
     let imageNumber = 0;
     let bottom = 160

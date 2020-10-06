@@ -26,6 +26,7 @@ var change = false;
 
 document.querySelector("body").addEventListener("click", () => {
     if (change) {
+        document.querySelector(".gun").play()
         let $bullets = document.querySelector(".bullets")
         if (bullets >= 1)
             $bullets.innerHTML = `Bullets : ${--bullets}`
@@ -96,7 +97,11 @@ function bird() {
             left = -1;
         }
 
-        if (seconds == 3000) {
+
+        if (Math.floor(Math.random() * 1000) <= 1) {
+            document.querySelector(".quack").play()
+        }
+        if (seconds == 2000) {
             clearInterval(id);
             showDog("noHunt");
         }
@@ -117,7 +122,7 @@ function bird() {
 function shot(bird) {
     // this function changes the image of bird from flying image to shot image and will make it fall from sky to ground
     clearInterval(id);
-    change = false;
+    document.querySelector(".gun").play()
     // the below bar is updated to show the number of birds killed
     let $display = document.querySelector(`.${selectClass[birdKilled++]}`)
     // if (birdKilled == 5) birdKilled = 0
@@ -132,7 +137,10 @@ function shot(bird) {
         .splice(0, $bird.style.top.split("").length - 2)
         .join("")
     );
-
+    change = false;
+    let $bullets = document.querySelector(".bullets")
+    if (bullets >= 1)
+        $bullets.innerHTML = `Bullets : ${--bullets}`
     // making the shot bird fall from sky to ground
     let id1 = setTimeout(() => {
         let id2 = setInterval(() => {
@@ -152,8 +160,11 @@ function showDog(type = "hunt") {
     let dog = document.querySelector(".dog");
 
     // if the bird flews away then the laughing dog comes up else the dog holding shot bird is show
-    if (type == "hunt") dog.setAttribute("src", `assets/catch/1.png`);
-    else {
+    if (type == "hunt") {
+        document.querySelector(".dogDuck").play()
+        dog.setAttribute("src", `assets/catch/1.png`);
+    } else {
+        document.querySelector(".laugh").play()
         dog.setAttribute("src", `assets/catch/3.png`);
         let $bird = document.querySelector(`.bird`);
         $bird.style.display = "none";
@@ -163,20 +174,22 @@ function showDog(type = "hunt") {
     // the dog comes up and then goes down
     let id = setInterval(
         () => {
-            if (bottom <= 185 && direction == "up") {
+            if (bottom <= 200 && direction == "up") {
                 dog.style.bottom = `${bottom++}px`;
             } else if (bottom >= 105) dog.style.bottom = `${bottom--}px`;
             else clearInterval(id);
-            if (bottom == 185) direction = "down";
+            if (bottom == 200) direction = "down";
         },
-        type == "hunt" ? 10 : 20
+        type == "hunt" ? 10 : 1000
     );
 
+
     if (birdKilled == 5) {
-        won()
+        console.log("timeus");
+        setTimeout(() => won(), 3000)
     } else {
         // once the dog comes up and goes down after one second a new bird is created
-        callBirdTimeout = setTimeout(createNewBird, 1000);
+        callBirdTimeout = setTimeout(createNewBird, 2000);
     }
 }
 
