@@ -1,11 +1,10 @@
 import {
-    drawDog
-} from "./drawDog.js"
+    drawBird
+} from "./bird2-3.js"
 
 import {
-    bird,
-    shot
-} from "./bird.js"
+    drawDog
+} from "./drawDog.js"
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -16,8 +15,7 @@ canvas.style.width = "100%"
 
 canvas.style.backgroundImage = `url("assets/bush.png")`
 
-
 window.onload = () => drawDog(ctx)
 
 
-setTimeout(() => bird(), 5000)
+setTimeout(() => drawBird(), 5000)
