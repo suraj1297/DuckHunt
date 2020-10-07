@@ -18,7 +18,6 @@ var selectClass = ["one", "two", "three", "four", "five", "six"];
 var change = false;
 
 const killed = new Killed();
-killed.__proto__.birdKilled = 6;
 
 document.querySelector("body").addEventListener("click", () => {
   if (change) {

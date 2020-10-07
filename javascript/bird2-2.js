@@ -18,8 +18,6 @@ var selectClass = ["one", "two", "three", "four", "five", "six"];
 var change = false;
 
 const killed = new Killed();
-// console.log(killed.__proto__.bullets);
-// console.log(killed);
 
 document.querySelector("body").addEventListener("click", () => {
   if (change) {
