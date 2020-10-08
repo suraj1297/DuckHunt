@@ -117,8 +117,9 @@ function bird2() {
     if (killed.__proto__.bullets == 0) {
       clearInterval(id);
       change = false;
-      if (killed.__proto__.birdKilled !== 6) lost();
-      else won("level2");
+      if (killed.__proto__.birdKilled !== 6) {
+        lost();
+      } else won("level2");
     }
     if (killed.__proto__.birdKilled == 6) {
       clearInterval(id);
@@ -170,37 +171,43 @@ function shot(bird) {
   }, 10);
 }
 
-function showDog(type = "hunt") {
+async function showDog(type = "hunt") {
   // when the bird falls on ground the dog holding birf image will appear
   let dog = document.querySelector(".dog");
 
-  if (killed.__proto__.changeDog) {
-    killed.__proto__.changeDog = false;
-    // if the bird flews away then the laughing dog comes up else the dog holding shot bird is show
-    if (type == "hunt") {
-      document.querySelector(".dogDuck").play();
-      dog.setAttribute("src", `assets/catch/1.png`);
-    } else {
-      document.querySelector(".laugh").play();
-      dog.setAttribute("src", `assets/catch/3.png`);
-      let $bird = document.querySelector(`.bird`);
-      $bird.style.display = "none";
-    }
-    let bottom = 132;
-    let direction = "up";
+  // if the bird flews away then the laughing dog comes up else the dog holding shot bird is show
+  if (type == "hunt") {
+    document.querySelector(".dogDuck").play();
+    dog.setAttribute("src", `assets/catch/1.png`);
+  } else {
+    document.querySelector(".laugh").play();
+    dog.setAttribute("src", `assets/catch/3.png`);
+    let $bird = document.querySelector(`.bird`);
+    $bird.style.display = "none";
+  }
+
+  if (dog.style.bottom !== "105px" && type == "hunt") {
+    dog.setAttribute("src", `assets/catch/2.png`);
+  } else {
+    let bottom = 105;
+    killed.__proto__.dogDirection = "up";
+
     // the dog comes up and then goes down
     let id = setInterval(() => {
-      if (bottom <= 200 && direction == "up") {
+      if (bottom <= 200 && killed.__proto__.dogDirection == "up") {
         dog.style.bottom = `${bottom++}px`;
       } else if (bottom >= 105) dog.style.bottom = `${bottom--}px`;
       else clearInterval(id);
-      if (bottom == 200) direction = "down";
+      if (bottom == 200) killed.__proto__.dogDirection = "down";
     }, 20);
   }
 
-  killed.__proto__.changeDog = true;
+  //   killed.__proto__.changeDog = true;
   if (killed.__proto__.birdKilled == 6) {
-    setTimeout(() => won("level2"), 3000);
+    setTimeout(() => {
+      change = false;
+      won("level2");
+    }, 3000);
   } else {
     // once the dog comes up and goes down after one second a new bird is created
     callBirdTimeout = setTimeout(createNewBird, 4000);
@@ -227,5 +234,7 @@ function wings($bird, direction) {
   }
   return Promise.resolve();
 }
+
+let promise = new Promise((resolve) => setTimeout(() => {}, 10));
 
 export { bird2, shot };
