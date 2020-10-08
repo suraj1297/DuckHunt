@@ -182,7 +182,7 @@ async function showDog(type = "hunt") {
   } else {
     document.querySelector(".laugh").play();
     dog.setAttribute("src", `assets/catch/3.png`);
-    let $bird = document.querySelector(`.bird`);
+    let $bird = document.querySelector(`.bird2`);
     $bird.style.display = "none";
   }
 

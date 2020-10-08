@@ -232,6 +232,4 @@ function wings($bird, direction) {
   return Promise.resolve();
 }
 
-let promise = new Promise((resolve) => setTimeout(() => {}, 10));
-
 export { bird, shot };
