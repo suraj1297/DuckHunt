@@ -30,7 +30,11 @@ document.querySelector("body").addEventListener("click", () => {
 
 function bird() {
   do {
-    document.querySelector("body").removeChild(document.querySelector(".bird"));
+    if (document.querySelector(".bird")) {
+      document
+        .querySelector("body")
+        .removeChild(document.querySelector(".bird"));
+    }
     // creating bird 1
     let $bird = document.createElement("img");
     $bird.classList = "bird";

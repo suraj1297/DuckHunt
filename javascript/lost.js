@@ -1,26 +1,26 @@
 function lost() {
+  document.querySelector("body").removeChild(document.querySelector(".bird"));
+  document.querySelector("body").removeChild(document.querySelector(".bird2"));
+  document.querySelector("body").removeChild(document.querySelector(".bird3"));
+  document.querySelector(".loser").play();
+  if (document.querySelector(".lost")) {
+    document.querySelector("body").removeChild(document.querySelector(".lost"));
+  }
+  let $div = document.createElement("div");
+  $div.classList = "lost";
+  let $p = document.createElement("p");
+  $p.appendChild(document.createTextNode("You Just Lost The Game!"));
+  $div.appendChild($p);
 
-    document.querySelector(".loser").play()
-    if (document.querySelector(".lost")) {
-        document.querySelector("body").removeChild(document.querySelector(".lost"))
-    }
-    let $div = document.createElement("div")
-    $div.classList = "lost"
-    let $p = document.createElement("p")
-    $p.appendChild(document.createTextNode("You Just Lost The Game!"))
-    $div.appendChild($p)
+  let $button = document.createElement("div");
+  $button.id = "try-again";
+  $button.appendChild(document.createTextNode("TRY AGAIN"));
+  $button.addEventListener("click", () => {
+    location.reload();
+  });
+  $div.appendChild($button);
 
-    let $button = document.createElement("div")
-    $button.id = "try-again"
-    $button.appendChild(document.createTextNode("TRY AGAIN"))
-    $button.addEventListener("click", () => {
-        location.reload()
-    })
-    $div.appendChild($button)
-
-    document.querySelector("body").appendChild($div)
+  document.querySelector("body").appendChild($div);
 }
 
-export {
-    lost
-}
+export { lost };

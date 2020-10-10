@@ -30,9 +30,11 @@ document.querySelector("body").addEventListener("click", () => {
 
 function bird2() {
   do {
-    document
-      .querySelector("body")
-      .removeChild(document.querySelector(".bird2"));
+    if (document.querySelector(".bird2")) {
+      document
+        .querySelector("body")
+        .removeChild(document.querySelector(".bird2"));
+    }
     // creating bird 1
     let $bird = document.createElement("img");
     $bird.classList = "bird2";
@@ -118,6 +120,7 @@ function bird2() {
       clearInterval(id);
       change = false;
       if (killed.__proto__.birdKilled !== 6) {
+        change = false;
         lost();
       } else won("level2");
     }

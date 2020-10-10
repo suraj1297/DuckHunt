@@ -1,42 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duck Hunt</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body style="background-color: grey">
+    <img src="assets/front.jpg" alt="" srcset="" class="front" />
+    <div class="playgame">Play Game</div>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Duck Hunt</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-
-<body>
-  <h1>DUCK HUNT</h1>
-  <p class="bullets">Bullets : 10</p>
-
-  <p class="level">Level 1</p>
-  <canvas id="canvas"></canvas>
-  <img src="assets/sniff/0.png" alt="" srcset="" class="dog" />
-  <img src="assets/tree.png" alt="Tree" srcset="" class="tree" />
-  <div class="duck-symbol">
-    <img src="assets/score-live/0.png" alt="Duck Symbol" class="one" />
-    <img src="assets/score-live/0.png" alt="Duck Symbol" class="two" />
-    <img src="assets/score-live/0.png" alt="Duck Symbol" class="three" />
-    <img src="assets/score-live/0.png" alt="Duck Symbol" class="four" />
-    <img src="assets/score-live/0.png" alt="Duck Symbol" class="five" />
-  </div>
-
-  <img src="" alt="" class="bird" />
-  <audio src="assets/sounds/laugh.mp3" class="laugh"></audio>
-  <audio src="assets/sounds/gunSound.mp3" class="gun"></audio>
-  <audio src="assets/sounds/sniff.mp3" class="sniff"></audio>
-  <audio src="assets/sounds/barkDucks.mp3" class="dogDuck"></audio>
-  <audio src="assets/sounds/champ.mp3" class="champ"></audio>
-  <audio src="assets/sounds/loserSound.mp3" class="loser"></audio>
-  <audio src="assets/sounds/quak.mp3" class="quack"></audio>
-
-  <script src="javascript/app.js" , type="module"></script>
-  <script src="javascript/bird.js" , type="module"></script>
-  <script src="javascript/lost.js" , type="module"></script>
-  <script src="javascript/won.js" , type="module"></script>
-</body>
-
+    <script>
+      document
+        .querySelector(".playgame")
+        .addEventListener("click", () =>
+          window.location.replace("./level1.html")
+        );
+    </script>
+  </body>
 </html>
